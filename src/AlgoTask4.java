@@ -13,29 +13,24 @@ public class AlgoTask4 {
 //7-й элемент этого массива равен 256.
 
     public static void main(String[] args) {
-        int[] firstArray = {100, 112, 256, 349, 770};               // m
-        int[] secondArray = {172, 86, 113, 119, 265, 445, 892};     // n
-        int[] thirdArray = new int[firstArray.length + secondArray.length];
-        for (int i = 0; i < thirdArray.length; i++) {
-            if (i > firstArray.length - 1) {
-                thirdArray[i] = secondArray[i - firstArray.length];
-            }
-            else {
-                thirdArray[i] = firstArray[i];
-            }
-        }
-        Arrays.sort(thirdArray);                                    //Окончательный отсортированный массив
-        int k = 7;                                                  //7-й элемент этого массива, должен быть равен 256
-        int result = 0;
-        for (int i = 0; i < thirdArray.length; i++) {
-            if (i < k) {
-                result = thirdArray[i];;
-            }
-            else {
-               break;
-            }
-        }
-        System.out.println(result);
+
+        int[] m = {100, 112, 256, 349, 770};
+        int[] n = {72, 86, 113, 119, 265, 445, 892};
+        int k = 7;
+        System.out.println(getElement(m, n, k));
     }
 
+    static int getElement(int[] a, int[] b, int e) {
+
+        int aIndex = 0;
+        int bIndex = 0;
+        for (int i = 0; i < e - 1; i++) {
+            if (a[aIndex] < b[bIndex]) {
+                aIndex++;
+            } else {
+                bIndex++;
+            }
+        }
+        return Math.min(a[aIndex], b[bIndex]);
+    }
 }
