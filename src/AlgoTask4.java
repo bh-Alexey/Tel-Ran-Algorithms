@@ -24,8 +24,8 @@ public class AlgoTask4 {
                 thirdArray[i] = firstArray[i];
             }
         }
-        Arrays.sort(thirdArray);
-        int k = 7;
+        Arrays.sort(thirdArray);                                    //Окончательный отсортированный массив
+        int k = 7;                                                  //7-й элемент этого массива, должен быть равен 256
         int result = 0;
         for (int i = 0; i < thirdArray.length; i++) {
             if (i < k) {
