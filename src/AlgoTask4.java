@@ -13,24 +13,29 @@ public class AlgoTask4 {
 //7-й элемент этого массива равен 256.
 
     public static void main(String[] args) {
-
         int[] m = {100, 112, 256, 349, 770};
         int[] n = {72, 86, 113, 119, 265, 445, 892};
-        int k = 7;
+        int k = 9;
         System.out.println(getElement(m, n, k));
     }
 
     static int getElement(int[] a, int[] b, int e) {
-
         int aIndex = 0;
         int bIndex = 0;
-        for (int i = 0; i < e - 1; i++) {
-            if (a[aIndex] < b[bIndex]) {
+        int result = 0;
+        int i = 0;
+        while (i < e) {
+            if ((a[aIndex] < b[bIndex]) && (aIndex < a.length - 1)) {
+                result = a[aIndex];
                 aIndex++;
             } else {
-                bIndex++;
+                result = b[bIndex];
+                if (bIndex < b.length - 1) {
+                    bIndex++;
+                }
             }
+            i++;
         }
-        return Math.min(a[aIndex], b[bIndex]);
+        return result;
     }
 }
